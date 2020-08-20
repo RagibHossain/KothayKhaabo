@@ -21,7 +21,8 @@ namespace Persistence.Initialize
                     Rating = 5,
                     StartingPrice = 149,
                     MaxPrice = 1000,
-                    Meals = "Burgers Only"
+                    Meals = "Burgers Only",
+                    Image ="chillox.jpg"
                 },
                  new Restaurant{
                     RestaurantName = "Takeout",
@@ -29,7 +30,8 @@ namespace Persistence.Initialize
                     Rating = 5,
                     StartingPrice = 199,
                     MaxPrice = 1000,
-                    Meals = "Burgers Only"
+                    Meals = "Burgers Only",
+                    Image ="takeout.jpg"
                 },
                  new Restaurant{
                     RestaurantName = "Mr.Manik",
@@ -37,13 +39,14 @@ namespace Persistence.Initialize
                     Rating = 5,
                     StartingPrice = 169,
                     MaxPrice = 1000,
-                    Meals = "Burgers Only"
+                    Meals = "Burgers Only",
+                    Image="mr.manik.jpg"
                 }
             };
             
             context.Restaurants.AddRange(restaurants);
 
-           var result =  context.SaveChanges() > 0;
+            var result =  context.SaveChanges() > 0;
             if(!result) throw new System.Exception("Error Occured Seeding the database"); 
         }
     }

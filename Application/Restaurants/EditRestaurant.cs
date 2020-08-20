@@ -1,17 +1,19 @@
-using System;
+using MediatR;
 
-namespace Domain
+namespace Application.Restaurants
 {
-    public class Restaurant
+    public class EditRestaurant
     {
-        public Guid Id { get; set; }
+        public class Command : IRequest
+        {
+            
         public string RestaurantName { get; set; }
         public string Location  { get; set; }
         public int Rating { get; set; }
         public int StartingPrice { get; set; }
         public int MaxPrice { get; set; }
         public string Meals { get; set; }
-        public string Image { get; set; }
-        
+        public string Image { get; set; }    
+        }
     }
 }
