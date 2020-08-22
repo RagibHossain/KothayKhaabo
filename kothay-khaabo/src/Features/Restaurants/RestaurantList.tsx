@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import { IRestaurant } from '../../Common/Models/Restaurant';
-import axios from "axios"
+import React, { useContext } from 'react'
 import Restaurant from './Restaurant';
-import { Row, Col, Image } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
+import { restaurantStoreContext } from '../../Common/Stores/restauantStore';
+import { observer } from 'mobx-react-lite';
+import Header from '../Home/Header';
 const RestaurantList = () => {
-    const [restaurants,setRestaurants] = useState<IRestaurant[]>([]);
-
-    useEffect(() => {
-     axios.get("http://localhost:5000/restaurant").then( response => {
-         setRestaurants(response.data);
-     })
-    },[setRestaurants])
+    const {restaurants} = useContext(restaurantStoreContext);
+    const props = {
+        content : "Restaurants",
+        description : "Top places to visit at the moment"
+    }
     return (
-        <div>
+        <div>  
+            <Header content={props.content} description={props.description}/>     
             <Row md={2}>
             {restaurants && restaurants.map((restaurant) => (
                 <Col key={restaurant.id}>
@@ -24,4 +24,4 @@ const RestaurantList = () => {
     )
 }
 
-export default RestaurantList
+export default observer(RestaurantList);

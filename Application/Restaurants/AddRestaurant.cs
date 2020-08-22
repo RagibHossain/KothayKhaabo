@@ -20,6 +20,18 @@ namespace Application.Restaurants
         public int MaxPrice { get; set; }
         public string Meals { get; set; }
         }
+         public class CommandValidator : AbstractValidator<Command>
+            {
+                public CommandValidator()
+                {
+                    RuleFor(x => x.RestaurantName).NotEmpty();
+                    RuleFor(x => x.Location).NotEmpty();
+                    RuleFor(x => x.Meals).NotEmpty();
+                    RuleFor(x => x.Rating).NotEmpty();
+                    RuleFor(x => x.StartingPrice).NotEmpty();
+                    RuleFor(x => x.MaxPrice).NotEmpty();
+                }
+            }
         public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
@@ -27,15 +39,7 @@ namespace Application.Restaurants
             {
                 _context = context;
             }
-            public class CommandValidator : AbstractValidator<Command>
-            {
-                public CommandValidator()
-                {
-                    RuleFor(x => x.RestaurantName).NotEmpty();
-                    RuleFor(x => x.Location).NotEmpty();
-                    RuleFor(x => x.Meals).NotEmpty();
-                }
-            }
+           
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
                 

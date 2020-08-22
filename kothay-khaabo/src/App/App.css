@@ -1,7 +1,6 @@
 
 .nav{
   background-color: #1B1B1B;
-
 }
 a.ml-5.mr-5.navItem.nav-link {
   color: #ffffff;
@@ -10,8 +9,18 @@ a.ml-5.mr-5.navItem.nav-link {
   font-family: 'Do Hyeon', sans-serif;
 
 }
+span.navItem {
+  color: #ffffff;
+  font-size: large;
+  font-weight: normal;
+  font-family: 'Do Hyeon', sans-serif;
+}
 .cardImage{
   height: 300px;
+}
+.cardImage :hover{
+  transform: scale(1.1,1.1);
+  height: 400px;
 }
 img.card-img-top.cardImage :hover {
   transform: scale(1.1,1.1);
@@ -21,10 +30,12 @@ img.card-img-top.cardImage :hover {
   margin-top: 30px;
 }
 .homeImage{
-  margin-left: 100px;
-  
+  margin-left: 250px;
+  margin-top : 80px;
 }
 .button-font{
+  
   font-weight: normal;
   font-family: 'Do Hyeon', sans-serif;
+
 }

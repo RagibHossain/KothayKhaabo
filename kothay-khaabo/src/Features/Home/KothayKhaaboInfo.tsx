@@ -1,5 +1,4 @@
 import React from "react";
-import { Image } from "react-bootstrap";
 
 const KothayKhaaboInfo = () => {
     const image = {
@@ -8,7 +7,7 @@ const KothayKhaaboInfo = () => {
   return (
     <div>
       <div className="homeImage">
-        <img src="logo.PNG" style={image} />
+        <img src="logo.PNG" style={image} alt="restaurant" />
       </div>
     </div>
   );

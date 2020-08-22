@@ -1,20 +1,44 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Domain;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Initialize
 {
     public static class Seed
     {
-        public static void SeedData(DataContext context)
+        public static async Task SeedData(DataContext context, UserManager<AppUser> userManager)
         {
-            if(context.Restaurants.Any())
+            if (!userManager.Users.Any())
             {
-                return;
+                var users = new List<AppUser>
+                {
+                   new AppUser{
+                       DisplayName = "Ashik",
+                       UserName = "pervyMadara",
+                       Email = "pervymadara@gmail.com"
+                   },
+                   new AppUser{
+                       DisplayName = "Ninad",
+                       UserName = "gayboy",
+                       Email = "gayboy@gmail.com"
+                   },
+                   new AppUser{
+                       DisplayName = "Ragib",
+                       UserName = "princeofallsaiyan",
+                       Email = "princeofallsaiyan@gmail.com"
+                   }
+            };
+                foreach (var user in users)
+                {
+                    await userManager.CreateAsync(user, "Pa$$w0rd");
+                }
             }
-
-            var restaurants = new List<Restaurant>{
+            if (!context.Restaurants.Any())
+            {
+                var restaurants = new List<Restaurant>{
                 new Restaurant{
                     RestaurantName = "Chillox",
                     Location = "Uttara",
@@ -42,12 +66,15 @@ namespace Persistence.Initialize
                     Meals = "Burgers Only",
                     Image="mr.manik.jpg"
                 }
-            };
-            
-            context.Restaurants.AddRange(restaurants);
+             };
 
-            var result =  context.SaveChanges() > 0;
-            if(!result) throw new System.Exception("Error Occured Seeding the database"); 
+                context.Restaurants.AddRange(restaurants);
+
+                var result = context.SaveChanges() > 0;
+                if (!result) throw new System.Exception("Error Occured Seeding the database");
+            }
+
+
         }
     }
 }
