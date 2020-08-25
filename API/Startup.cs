@@ -61,7 +61,7 @@ namespace API
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                    policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
                 });
             });
            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("super secret key"));
@@ -78,9 +78,9 @@ namespace API
             var builder = services.AddIdentityCore<AppUser>();
             var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
             identityBuilder.AddEntityFrameworkStores<DataContext>();
-            identityBuilder.AddSignInManager<SignInManager<AppUser>>();
-           
+            identityBuilder.AddSignInManager<SignInManager<AppUser>>();        
             services.AddScoped<IJwtGenerator,JwtGenerator>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

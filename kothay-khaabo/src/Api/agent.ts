@@ -1,7 +1,19 @@
 import Axios, { AxiosResponse } from "axios";
 import { IRestaurant } from "../Common/Models/Restaurant";
+import { IUserForm, IUser } from "../Common/Models/User";
 
 Axios.defaults.baseURL = "http://localhost:5000";
+
+Axios.interceptors.request.use(
+  (config) => {
+    const token = window.localStorage.getItem("token");
+    if(token) config.headers.Authorization = `Bearer ${token}`;
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+)
 
 const responseBody = (response : AxiosResponse) => response.data;
 
@@ -25,6 +37,12 @@ const Restaurants ={
     Delete : (id : string) => requests.del(`/restaurant/${id}`)
 }
 
+const User = {
+  Login :  (user : IUserForm) : Promise<IUser> => requests.post("/user/login",user),
+  Register : (user : IUserForm) : Promise<IUser>  => requests.post("/user/register",user)
+}
+
 export default {
-    Restaurants
+    Restaurants,
+    User
 };

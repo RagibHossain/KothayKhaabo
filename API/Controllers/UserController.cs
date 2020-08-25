@@ -16,12 +16,19 @@ namespace API.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         [AllowAnonymous]
         public async Task<ActionResult<User>> Login(Login.Query query)
         {
             return await _mediator.Send(query);
         }
+        [HttpPost("register")]
+        [AllowAnonymous]
+        public async Task<ActionResult<User>> Register(Register.Command command)
+        {
+            return await _mediator.Send(command);
+        }
+
 
     }
 }

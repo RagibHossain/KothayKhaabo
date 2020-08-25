@@ -2,6 +2,11 @@
 .nav{
   background-color: #1B1B1B;
 }
+.global-font{
+  font-weight: normal;
+  font-family: 'Do Hyeon', sans-serif;
+  border-color: #1b1b1b;
+}
 a.ml-5.mr-5.navItem.nav-link {
   color: #ffffff;
   font-size: large;
@@ -37,5 +42,123 @@ img.card-img-top.cardImage :hover {
   
   font-weight: normal;
   font-family: 'Do Hyeon', sans-serif;
+  border-style: solid;
+  border-color: #1b1b1b;
 
+}
+.main-head{
+  height: 150px;
+  background: #FFF;
+ 
+}
+
+.sidenav {
+  height: 100%;
+  background-color: #1b1b1b;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.main {
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+  .login-form{
+      margin-top: 10%;
+  }
+
+  .register-form{
+      margin-top: 10%;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .main{
+      margin-left: 40%; 
+  }
+  .homeImage{
+    margin-left: 50%;
+    margin-top : 6%;
+  }
+
+  .sidenav{
+      width: 40%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+  }
+  .custombtn{
+    width: 40%;
+  }
+  .login-form{
+      
+      padding: 10%;
+      margin-top: 20%;
+      margin-left: 40%;
+  }
+
+  .register-form{
+      margin-top: 20%;
+  }
+}
+
+.login-main-text{
+  margin-top: 20%;
+  padding: 60px;
+  color: #fff;
+  font-weight: normal;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.login-main-text h2{
+  font-weight: 300;
+}
+
+.btn-black{
+  background-color: #000 !important;
+  color: #fff;
+}
+.buttongroup{
+  padding:2%;
+  margin-top: 20%;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+
+}
+.custombtn:hover{
+  background-color: #ffffff;
+  color: #1B1B1B;
+  outline: none;
+  border: none;
+}
+
+.custombtn{
+   width: 200px;
+   height: 50px;
+  background-color: #1B1B1B;
+  color: #ffffff;
+  border: solid 1px #ffffff;
+}
+
+.submitButton{
+  width: 80px;
+   height: 40px;
+  background-color: #1B1B1B;
+  color: #ffffff;
+  border: solid 1px #ffffff;
+  font-weight: normal;
+  font-family: 'Do Hyeon', sans-serif;
+}
+.submitButton:hover{
+  background-color: #ffffff;
+  color: #1B1B1B;
+  outline: none;
+  border: solid 2px #1b1b1b;
 }

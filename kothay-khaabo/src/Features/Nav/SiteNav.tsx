@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Navbar,
   Nav,
-  Form,
-  FormControl,
   Button,
   Container,
 } from "react-bootstrap";
 import "../../App/App.css";
 import { NavLink } from "react-router-dom";
+import { observer } from "mobx-react-lite";
+import { userStoreContext } from "../../Common/Stores/userStore";
 const SiteNav = () => {
+  const {logout} = useContext(userStoreContext);
   return (
     <div>
       <Navbar fixed="top" className="nav" variant="dark">
@@ -33,16 +34,15 @@ const SiteNav = () => {
               <span className="navItem ml-5 mr-5">HOME</span>
             </NavLink>
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button className="button-font" variant="outline-light">
-              Search
+          
+            <Button onClick={logout} className="button-font" variant="outline-light">
+              Logout
             </Button>
-          </Form>
+         
         </Container>
       </Navbar>
     </div>
   );
 };
 
-export default SiteNav;
+export default observer(SiteNav);

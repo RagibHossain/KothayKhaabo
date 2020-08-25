@@ -1,26 +1,34 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, Fragment } from "react";
 import "./App.css";
 import SiteNav from "../Features/Nav/SiteNav";
 import RestaurantDashboard from "../Features/Restaurants/RestaurantDashboard";
 import { Switch, Route } from "react-router-dom";
-import KothayKhaaboInfo from "../Features/Home/KothayKhaaboInfo";
 import { restaurantStoreContext } from "../Common/Stores/restauantStore";
+import { observer } from "mobx-react-lite";
+import Home from "../Features/Home/Home";
 
 function App() {
-  const {loadRestaurants}  = useContext(restaurantStoreContext);
+  const { loadRestaurants } = useContext(restaurantStoreContext);
   useEffect(() => {
-     loadRestaurants();
-   },[loadRestaurants])
+    loadRestaurants();
+  }, [loadRestaurants]);
   return (
     <div>
-      <SiteNav />
-    <Switch>
-      <Route path="/" exact component={KothayKhaaboInfo} />
-      <Route path="/home" component={RestaurantDashboard} />
-    </Switch>
+      {/* <SiteNav /> */}
+      <Route path="/" exact component={Home} />
+      <Route
+        path={"/(.+)"}
+        render={() => (
+          <Fragment>
+            <SiteNav />
+            <Switch>
+              <Route path="/home" component={RestaurantDashboard} />
+            </Switch>
+          </Fragment>
+        )}
+      />
     </div>
-
   );
 }
 
-export default App;
+export default observer(App);
