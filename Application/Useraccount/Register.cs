@@ -1,6 +1,8 @@
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Errors;
 using Application.Interfaces;
 using Domain;
 using FluentValidation;
@@ -49,8 +51,8 @@ namespace Application.Useraccount
 
             public async Task<User> Handle(Command request, CancellationToken cancellationToken)
             {
-                if(await _userManager.Users.AnyAsync(x => x.Email == request.Email)) throw new Exception("Email already Exists");
-                if(await _userManager.Users.AnyAsync(x => x.UserName == request.UserName)) throw new Exception("Username already exists");
+                if(await _userManager.Users.AnyAsync(x => x.Email == request.Email)) throw new RestException(HttpStatusCode.BadRequest,"Email already Exists");
+                if(await _userManager.Users.AnyAsync(x => x.UserName == request.UserName)) throw new RestException(HttpStatusCode.BadRequest,"Username already exists");
 
                 var user = new AppUser{
                     Email = request.Email,

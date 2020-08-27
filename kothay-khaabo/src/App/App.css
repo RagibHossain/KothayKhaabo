@@ -162,3 +162,7 @@ img.card-img-top.cardImage :hover {
   outline: none;
   border: solid 2px #1b1b1b;
 }
+.navlink:hover{
+  text-decoration : none;
+  background-color: black;
+}

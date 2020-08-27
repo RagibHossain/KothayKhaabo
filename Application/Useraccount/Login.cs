@@ -1,6 +1,8 @@
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Errors;
 using Application.Interfaces;
 using Domain;
 using FluentValidation;
@@ -42,7 +44,7 @@ namespace Application.Useraccount
             {
                 var user = await _userManager.FindByEmailAsync(request.Email);
 
-                if (user == null) throw new Exception("No user found");
+                if (user == null) throw new RestException(HttpStatusCode.Unauthorized,"Email or Password is incorrect");
 
                 var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
 
@@ -50,7 +52,7 @@ namespace Application.Useraccount
                 {
                     return new User { Username = user.UserName, DisplayName = user.DisplayName, Token = _jwtGenerator.CreateToken(user) };
                 }
-                throw new System.UnauthorizedAccessException("Couldn't login");
+                throw new RestException(HttpStatusCode.Unauthorized,"Email or password is incorrect");
             }
 
         }

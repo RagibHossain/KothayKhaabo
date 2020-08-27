@@ -3,12 +3,12 @@ import Header from "../../Home/Header";
 import { useForm } from "react-hook-form";
 import { IUserForm } from "../../../Common/Models/User";
 import TextInput from "../../../Common/Inputs/TextInput";
-import { userStoreContext } from "../../../Common/Stores/userStore";
+import { rootStoreContext } from "../../../Common/Stores/rootStore";
 const LoginForm = () => {
 
   const { register, handleSubmit, errors } = useForm<IUserForm>();
-
-  const {login} = useContext(userStoreContext);
+  const rootStore = useContext(rootStoreContext);
+  const {login} = rootStore.userStore;
 
   const onSubmit = (formdata: IUserForm) => {
       login(formdata);

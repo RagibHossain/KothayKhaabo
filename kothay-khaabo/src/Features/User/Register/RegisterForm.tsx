@@ -3,19 +3,19 @@ import Header from "../../Home/Header";
 import { useForm } from "react-hook-form";
 import { IUserForm } from "../../../Common/Models/User";
 import TextInput from "../../../Common/Inputs/TextInput";
-import { userStoreContext } from "../../../Common/Stores/userStore";
+import { rootStoreContext } from "../../../Common/Stores/rootStore";
 
 const RegisterForm = () => {
-  const { register, handleSubmit, errors, getValues } = useForm<
-    IUserForm
-  >();
-   const {register: Register} = useContext(userStoreContext);
+  const { register, handleSubmit, errors, getValues } = useForm<IUserForm>();
+  const rootStore = useContext(rootStoreContext);
+  const { register: Register } = rootStore.userStore;
   const onSubmit = (formdata: IUserForm) => {
-     Register(formdata);
+    Register(formdata);
     console.log(formdata);
   };
-  
+
   const password = getValues("password");
+  console.log(password);
   return (
     <div>
       <div className="main">
@@ -58,7 +58,22 @@ const RegisterForm = () => {
                   type="password"
                   name="password"
                   placeholder="Password"
-                  register={register({ required: "Password is required" })}
+                  register={register({
+                    required: "Password is required",
+                    
+                    validate: (value) => {
+                      return (
+                        [
+                          /[a-z]/,
+                          /[A-Z]/,
+                          /[0-9]/,
+                          /[^a-zA-Z0-9]/
+                          
+                        ].every((pattern) => pattern.test(value)) ||
+                        "Password must contain atleast one Capital , one small letter , one number and one symbol"
+                      );
+                    },
+                  })}
                   error={errors.password}
                   label="Password"
                 />
@@ -68,7 +83,11 @@ const RegisterForm = () => {
                   type="password"
                   name="confirmPassword"
                   placeholder="Confirm Password"
-                  register={register({ required: "Confirm password is required", validate : value => value === password || "Passwords doesn't match" })}
+                  register={register({
+                    required: "Confirm password is required",
+                    validate: (value) =>
+                      value === password || "Passwords doesn't match",
+                  })}
                   error={errors.confirmPassword}
                   label="Confirm Password"
                 />

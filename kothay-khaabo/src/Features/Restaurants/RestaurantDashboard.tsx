@@ -1,12 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import RestaurantList from "./RestaurantList";
 import { Container } from "react-bootstrap";
-import  { restaurantStoreContext } from "../../Common/Stores/restauantStore";
 import { observer } from "mobx-react-lite";
 import Loading from "../Loader/Loading";
+import { rootStoreContext } from "../../Common/Stores/rootStore";
 
 const RestaurantDashboard = () => {
-  const {loading}  = useContext(restaurantStoreContext);
+  const rootStore  = useContext(rootStoreContext);
+  const { loadRestaurants ,loading} = rootStore.restaurantStore;
+  const {apploaded} = rootStore.commonStore;
+  useEffect(() => {
+    if(!apploaded)
+    loadRestaurants();
+  }, [loadRestaurants,apploaded]);
   return (
     <div className="dashboard">
       <Container>
