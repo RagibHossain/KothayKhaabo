@@ -19,6 +19,7 @@ namespace Application.Restaurants
         public int StartingPrice { get; set; }
         public int MaxPrice { get; set; }
         public string Meals { get; set; }
+        public string Image { get; set; }
         }
          public class CommandValidator : AbstractValidator<Command>
             {
@@ -30,6 +31,7 @@ namespace Application.Restaurants
                     RuleFor(x => x.Rating).NotEmpty();
                     RuleFor(x => x.StartingPrice).NotEmpty();
                     RuleFor(x => x.MaxPrice).NotEmpty();
+                    RuleFor(x => x.Image).NotEmpty();
                 }
             }
         public class Handler : IRequestHandler<Command>
@@ -51,7 +53,8 @@ namespace Application.Restaurants
                      Rating = request.Rating,
                      StartingPrice = request.StartingPrice,
                      MaxPrice = request.MaxPrice,
-                     Meals = request.Meals
+                     Meals = request.Meals,
+                     Image = request.Image
                  };
 
                  _context.Restaurants.Add(restaurant);

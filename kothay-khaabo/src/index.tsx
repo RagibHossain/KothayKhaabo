@@ -7,7 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import "react-toastify/dist/ReactToastify.css";
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 export const history = createBrowserHistory();
 ReactDOM.render(
   <Router history={history}>

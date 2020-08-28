@@ -45,7 +45,7 @@ namespace Persistence.Initialize
                     Rating = 5,
                     StartingPrice = 149,
                     MaxPrice = 1000,
-                    Meals = "Burgers Only",
+                    Meals = "Burgers",
                     Image ="chillox.jpg"
                 },
                  new Restaurant{
@@ -54,7 +54,7 @@ namespace Persistence.Initialize
                     Rating = 5,
                     StartingPrice = 199,
                     MaxPrice = 1000,
-                    Meals = "Burgers Only",
+                    Meals = "Burgers",
                     Image ="takeout.jpg"
                 },
                  new Restaurant{
@@ -63,8 +63,62 @@ namespace Persistence.Initialize
                     Rating = 5,
                     StartingPrice = 169,
                     MaxPrice = 1000,
-                    Meals = "Burgers Only",
+                    Meals = "Burgers",
                     Image="mr.manik.jpg"
+                },
+                   new Restaurant{
+                    RestaurantName = "American Burger",
+                    Location = "Uttara",
+                    Rating = 5,
+                    StartingPrice = 400,
+                    MaxPrice = 1000,
+                    Meals = "Burgers",
+                    Image="americanburger.png"
+                },
+                   new Restaurant{
+                    RestaurantName = "McDonald's",
+                    Location = "Uttara",
+                    Rating = 5,
+                    StartingPrice = 169,
+                    MaxPrice = 1000,
+                    Meals = "Burgers",
+                    Image="mcdonalds.png"
+                },
+                      new Restaurant{
+                    RestaurantName = "Domino's Pizza",
+                    Location = "Uttara",
+                    Rating = 5,
+                    StartingPrice = 500,
+                    MaxPrice = 2000,
+                    Meals = "Pizza",
+                    Image="dominos.jpg"
+                },
+                      new Restaurant{
+                    RestaurantName = "Cheez!",
+                    Location = "Uttara",
+                    Rating = 5,
+                    StartingPrice = 450,
+                    MaxPrice = 200,
+                    Meals = "Pizza",
+                    Image="cheez.jpg"
+                },
+                      new Restaurant{
+                    RestaurantName = "Pizza Hut",
+                    Location = "Uttara",
+                    Rating = 5,
+                    StartingPrice = 500,
+                    MaxPrice = 2000,
+                    Meals = "Pizza",
+                    Image="pizzahut.png"
+                },
+                    new Restaurant{
+                    RestaurantName = "Pizza Inn",
+                    Location = "Uttara",
+                    Rating = 5,
+                    StartingPrice = 600,
+                    MaxPrice = 2500,
+                    Meals = "Pizza",
+                    Image="pizzain.png"
                 }
              };
 

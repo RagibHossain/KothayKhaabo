@@ -5,13 +5,12 @@ import { IUserForm } from "../../../Common/Models/User";
 import TextInput from "../../../Common/Inputs/TextInput";
 import { rootStoreContext } from "../../../Common/Stores/rootStore";
 const LoginForm = () => {
-
   const { register, handleSubmit, errors } = useForm<IUserForm>();
   const rootStore = useContext(rootStoreContext);
-  const {login} = rootStore.userStore;
+  const { login } = rootStore.userStore;
 
   const onSubmit = (formdata: IUserForm) => {
-      login(formdata);
+    login(formdata);
   };
   return (
     <div>
@@ -36,13 +35,14 @@ const LoginForm = () => {
                   name="password"
                   placeholder="Password"
                   label="Password"
-                  register={register({ required: "required"})}
+                  register={register({ required: "required" })}
                   error={errors.password}
                 />
               </div>
               <button type="submit" className="submitButton">
                 Login
               </button>
+           
             </form>
           </div>
         </div>

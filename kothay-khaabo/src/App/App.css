@@ -1,4 +1,7 @@
 
+a{
+  padding:20px;
+}
 .nav{
   background-color: #1B1B1B;
 }
@@ -21,17 +24,13 @@ span.navItem {
   font-family: 'Do Hyeon', sans-serif;
 }
 .cardImage{
+  width: 430px;
   height: 300px;
 }
-.cardImage :hover{
-  transform: scale(1.1,1.1);
-  height: 400px;
-}
-img.card-img-top.cardImage :hover {
-  transform: scale(1.1,1.1);
-}
+
 .dashboard{
   margin-left: 50px;
+  margin-right: 50px;
   margin-top: 30px;
 }
 .homeImage{
@@ -133,6 +132,7 @@ img.card-img-top.cardImage :hover {
 
 }
 .custombtn:hover{
+  transition-duration: 0.5s;
   background-color: #ffffff;
   color: #1B1B1B;
   outline: none;
@@ -157,6 +157,7 @@ img.card-img-top.cardImage :hover {
   font-family: 'Do Hyeon', sans-serif;
 }
 .submitButton:hover{
+  transition-duration: 0.5s;
   background-color: #ffffff;
   color: #1B1B1B;
   outline: none;
@@ -164,5 +165,39 @@ img.card-img-top.cardImage :hover {
 }
 .navlink:hover{
   text-decoration : none;
-  background-color: black;
+  border-radius: 5%;
+  border:solid 1px white;
+}
+.restaurantCard:hover{
+  transition-duration: 1s;
+  transform: scale(1.1,1.1);
+}
+.subHeader{
+  display: flex;
+}
+.icon{
+  max-height: 130px;
+  width: 130px;
+}
+.icon:hover{
+  transition-duration: 1s;
+  transform: scale(1.1,1.1);
+}
+.iconImage{
+  width: 100%;
+}
+.title{
+  font-size: 50px;
+  font-family: 'Do Hyeon', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.subTitle{
+  font-family: 'Do Hyeon', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.restaurantList{
+  margin-top: 120px;
+  margin-bottom: 100px;
 }

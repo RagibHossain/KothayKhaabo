@@ -12,7 +12,8 @@ export default class RestaurantStore{
   }
   @observable loading = false;
   @observable restaurants : IRestaurant[] = []; 
-  
+  @observable burgerShops : IRestaurant[] = [];
+  @observable pizzaShops : IRestaurant[] = [];
   @action loadRestaurants = async () => {
     this.loading = true;
    
@@ -22,6 +23,9 @@ export default class RestaurantStore{
         restaurants.forEach((restaurant) => {
             this.restaurants.push(restaurant);
         })
+        console.log(restaurants);
+        this.burgerShops = restaurants.filter( e => e.meals === "Burgers");
+        this.pizzaShops = restaurants.filter(e => e.meals === "Pizza");
         this.rootStore.commonStore.apploaded = true;
       }catch(ex)
       {
