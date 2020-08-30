@@ -15,8 +15,8 @@ const SiteNav = () => {
         <Container className="pt-3">
           <Nav.Link className="logo" href="#home"></Nav.Link>
 
-          <Nav className="m-auto navItem">
-            <NavLink className="navlink" exact to="/">
+          <Nav className="m-auto">
+            <NavLink className="navlink navItem" exact to="/">
               <span className="navItem ml-5 mr-5">HOME</span>
             </NavLink>
             <NavLink

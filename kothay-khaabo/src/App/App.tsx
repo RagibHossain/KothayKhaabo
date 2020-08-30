@@ -6,6 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import Home from "../Features/Home/Home";
 import {ToastContainer} from "react-toastify";
+import RestaurantDetails from "../Features/Restaurants/RestaurantDetails";
 function App() {
   
   return (
@@ -20,6 +21,7 @@ function App() {
             <SiteNav />
             <Switch>
               <Route path="/home" component={RestaurantDashboard} />
+              <Route path="/restaurant/:id" component={RestaurantDetails} />
             </Switch>
           </Fragment>
         )}

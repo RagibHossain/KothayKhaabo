@@ -42,11 +42,12 @@ namespace Persistence.Initialize
                 new Restaurant{
                     RestaurantName = "Chillox",
                     Location = "Uttara",
-                    Rating = 5,
+                    Rating = 4,
                     StartingPrice = 149,
                     MaxPrice = 1000,
                     Meals = "Burgers",
-                    Image ="chillox.jpg"
+                    Image ="chillox.jpg",
+                    Slogan="Chill and Eat Spicy Burgers"
                 },
                  new Restaurant{
                     RestaurantName = "Takeout",
@@ -55,25 +56,28 @@ namespace Persistence.Initialize
                     StartingPrice = 199,
                     MaxPrice = 1000,
                     Meals = "Burgers",
-                    Image ="takeout.jpg"
+                    Image ="takeout.jpg",
+                    Slogan="Takeout and then Makeout"
                 },
                  new Restaurant{
                     RestaurantName = "Mr.Manik",
                     Location = "Uttara",
-                    Rating = 5,
+                    Rating = 3,
                     StartingPrice = 169,
                     MaxPrice = 1000,
                     Meals = "Burgers",
-                    Image="mr.manik.jpg"
+                    Image="mr.manik.jpg",
+                    Slogan="Manik Bhai's burger larger than american burger"
                 },
                    new Restaurant{
                     RestaurantName = "American Burger",
                     Location = "Uttara",
-                    Rating = 5,
+                    Rating = 4,
                     StartingPrice = 400,
                     MaxPrice = 1000,
                     Meals = "Burgers",
-                    Image="americanburger.png"
+                    Image="americanburger.png",
+                    Slogan="America Loves Burgers and We're America's Burger King"
                 },
                    new Restaurant{
                     RestaurantName = "McDonald's",
@@ -82,16 +86,18 @@ namespace Persistence.Initialize
                     StartingPrice = 169,
                     MaxPrice = 1000,
                     Meals = "Burgers",
-                    Image="mcdonalds.png"
+                    Image="mcdonalds.png",
+                    Slogan="I'm lovin it"
                 },
                       new Restaurant{
                     RestaurantName = "Domino's Pizza",
                     Location = "Uttara",
-                    Rating = 5,
+                    Rating = 3,
                     StartingPrice = 500,
                     MaxPrice = 2000,
                     Meals = "Pizza",
-                    Image="dominos.jpg"
+                    Image="dominos.jpg",
+                    Slogan="It's what we do"
                 },
                       new Restaurant{
                     RestaurantName = "Cheez!",
@@ -100,7 +106,8 @@ namespace Persistence.Initialize
                     StartingPrice = 450,
                     MaxPrice = 200,
                     Meals = "Pizza",
-                    Image="cheez.jpg"
+                    Image="cheez.jpg",
+                    Slogan="It's all about CHEEZ and RICHES."
                 },
                       new Restaurant{
                     RestaurantName = "Pizza Hut",
@@ -109,16 +116,18 @@ namespace Persistence.Initialize
                     StartingPrice = 500,
                     MaxPrice = 2000,
                     Meals = "Pizza",
-                    Image="pizzahut.png"
+                    Image="pizzahut.png",
+                    Slogan ="No One Outpizzas the Hut"
                 },
                     new Restaurant{
                     RestaurantName = "Pizza Inn",
                     Location = "Uttara",
-                    Rating = 5,
+                    Rating = 4,
                     StartingPrice = 600,
                     MaxPrice = 2500,
                     Meals = "Pizza",
-                    Image="pizzain.png"
+                    Image="pizzain.png",
+                    Slogan ="America's Hometown Pizza Place"
                 }
              };
 

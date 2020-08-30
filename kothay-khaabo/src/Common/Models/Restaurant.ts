@@ -7,4 +7,5 @@ export interface IRestaurant{
     maxPrice : number;
     meals : string;
     image : string;
+    slogan : string;
 }

@@ -12,6 +12,7 @@ namespace Domain
         public int MaxPrice { get; set; }
         public string Meals { get; set; }
         public string Image { get; set; }
+        public string Slogan { get; set; }
         
     }
 }
