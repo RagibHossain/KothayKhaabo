@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using API.Middleware;
 using Application.Interfaces;
 using Application.Restaurants;
+using AutoMapper;
 using Domain;
 using FluentValidation.AspNetCore;
 using Infrastructure.Security;
@@ -47,7 +48,7 @@ namespace API
 
             // Mediator Pattern 
             services.AddMediatR(typeof(List.Handler).Assembly);
-
+            services.AddAutoMapper(typeof(List.Handler));
             //Adding controllers with fluent validation
             services.AddControllers( opt => {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();

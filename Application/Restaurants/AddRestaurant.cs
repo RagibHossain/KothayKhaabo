@@ -29,7 +29,6 @@ namespace Application.Restaurants
                     RuleFor(x => x.RestaurantName).NotEmpty();
                     RuleFor(x => x.Location).NotEmpty();
                     RuleFor(x => x.Meals).NotEmpty();
-                    RuleFor(x => x.Rating).NotEmpty();
                     RuleFor(x => x.StartingPrice).NotEmpty();
                     RuleFor(x => x.MaxPrice).NotEmpty();
                     RuleFor(x => x.Image).NotEmpty();

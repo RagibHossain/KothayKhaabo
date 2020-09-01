@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Application.DTOs;
 using Application.Restaurants;
 using Domain;
 using MediatR;
@@ -21,14 +22,14 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Restaurant>>> List()
+        public async Task<ActionResult<List<RestaurantDTO>>> List()
         {
             return await _mediator.Send(new List.Query());
         }
 
         [HttpGet("{id}")]
 
-        public async Task<ActionResult<Restaurant>> Details(Guid id)
+        public async Task<ActionResult<RestaurantDTO>> Details(Guid id)
         {
             return await _mediator.Send(new Details.Query{Id = id});
         }
@@ -48,6 +49,12 @@ namespace API.Controllers
         public async Task<ActionResult<Unit>> EditRestaurant(EditRestaurant.Command command,Guid id)
         {
             command.Id = id;
+            return await _mediator.Send(command);
+        }
+        [HttpPost("{id}")]
+        public async Task<ActionResult<Unit>> UploadReview(UploadReview.Command command,Guid id)
+        {
+            command.RestaurantId = id;
             return await _mediator.Send(command);
         }
     }

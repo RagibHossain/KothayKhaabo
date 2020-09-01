@@ -1,33 +1,42 @@
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.DTOs;
+using Application.Errors;
+using AutoMapper;
 using Domain;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Application.Restaurants
 {
     public class Details
     {
-        public class Query : IRequest<Restaurant>
+        public class Query : IRequest<RestaurantDTO>
         {
             public Guid Id { get; set; }
         }
-        public class Handler : IRequestHandler<Query, Restaurant>
+        public class Handler : IRequestHandler<Query, RestaurantDTO>
         {
             private readonly DataContext _context;
-            public Handler(DataContext context)
+            private readonly IMapper _mapper;
+            public Handler(DataContext context, IMapper mapper)
             {
+                _mapper = mapper;
                 _context = context;
             }
 
-            public async Task<Restaurant> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<RestaurantDTO> Handle(Query request, CancellationToken cancellationToken)
             {
-                var restaurant = await _context.Restaurants.FindAsync(request.Id);
+                var restaurant = await _context.Restaurants.Include(x => x.RestaurantReviews).
+                ThenInclude(x => x.AppUser)
+                .FirstOrDefaultAsync(x => x.Id == request.Id);
 
-                if(restaurant == null) throw new Exception("Coudn't Find any Restaurant");
+                if (restaurant == null) throw new RestException(HttpStatusCode.NotFound, "Coudn't Find any Restaurant");
 
-                return restaurant;
+                return _mapper.Map<Restaurant,RestaurantDTO>(restaurant);
             }
         }
     }

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.DTOs;
+using AutoMapper;
 using Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -10,21 +12,25 @@ namespace Application.Restaurants
 {
     public class List
     {
-        public class Query : IRequest<List<Restaurant>> { }
+        public class Query : IRequest<List<RestaurantDTO>> { }
 
-        public class Handler : IRequestHandler<Query, List<Restaurant>>
+        public class Handler : IRequestHandler<Query, List<RestaurantDTO>>
         {
             private readonly DataContext _context;
-            public Handler(DataContext context)
+            private readonly IMapper _mapper;
+            public Handler(DataContext context, IMapper mapper)
             {
+                _mapper = mapper;
                 _context = context;
             }
 
-            public async Task<List<Restaurant>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<RestaurantDTO>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var restaurants = await _context.Restaurants.ToListAsync();
-
-                return restaurants;
+                var restaurants = await _context.Restaurants.Include(x => x.RestaurantReviews)
+                .ThenInclude(x => x.AppUser)
+                .ToListAsync();
+                 
+                return _mapper.Map<List<Restaurant>,List<RestaurantDTO>>(restaurants);
             }
         }
 

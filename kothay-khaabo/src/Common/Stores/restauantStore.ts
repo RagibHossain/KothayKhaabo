@@ -31,7 +31,7 @@ export default class RestaurantStore{
       }catch(ex)
       {
         this.loading = false;
-          toast.error("Log in to view this page");
+        toast.error("Log in to view this page");
       }
     
 

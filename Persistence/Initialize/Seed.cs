@@ -42,7 +42,7 @@ namespace Persistence.Initialize
                 new Restaurant{
                     RestaurantName = "Chillox",
                     Location = "Uttara",
-                    Rating = 4,
+                    Rating = 0,
                     StartingPrice = 149,
                     MaxPrice = 1000,
                     Meals = "Burgers",
@@ -52,7 +52,7 @@ namespace Persistence.Initialize
                  new Restaurant{
                     RestaurantName = "Takeout",
                     Location = "Uttara",
-                    Rating = 5,
+                    Rating = 0,
                     StartingPrice = 199,
                     MaxPrice = 1000,
                     Meals = "Burgers",
@@ -62,7 +62,7 @@ namespace Persistence.Initialize
                  new Restaurant{
                     RestaurantName = "Mr.Manik",
                     Location = "Uttara",
-                    Rating = 3,
+                    Rating = 0,
                     StartingPrice = 169,
                     MaxPrice = 1000,
                     Meals = "Burgers",
@@ -72,7 +72,7 @@ namespace Persistence.Initialize
                    new Restaurant{
                     RestaurantName = "American Burger",
                     Location = "Uttara",
-                    Rating = 4,
+                    Rating = 0,
                     StartingPrice = 400,
                     MaxPrice = 1000,
                     Meals = "Burgers",
@@ -82,7 +82,7 @@ namespace Persistence.Initialize
                    new Restaurant{
                     RestaurantName = "McDonald's",
                     Location = "Uttara",
-                    Rating = 5,
+                    Rating = 0,
                     StartingPrice = 169,
                     MaxPrice = 1000,
                     Meals = "Burgers",
@@ -92,7 +92,7 @@ namespace Persistence.Initialize
                       new Restaurant{
                     RestaurantName = "Domino's Pizza",
                     Location = "Uttara",
-                    Rating = 3,
+                    Rating = 0,
                     StartingPrice = 500,
                     MaxPrice = 2000,
                     Meals = "Pizza",
@@ -102,7 +102,7 @@ namespace Persistence.Initialize
                       new Restaurant{
                     RestaurantName = "Cheez!",
                     Location = "Uttara",
-                    Rating = 5,
+                    Rating = 0,
                     StartingPrice = 450,
                     MaxPrice = 200,
                     Meals = "Pizza",
@@ -112,7 +112,7 @@ namespace Persistence.Initialize
                       new Restaurant{
                     RestaurantName = "Pizza Hut",
                     Location = "Uttara",
-                    Rating = 5,
+                    Rating = 0,
                     StartingPrice = 500,
                     MaxPrice = 2000,
                     Meals = "Pizza",
@@ -122,7 +122,7 @@ namespace Persistence.Initialize
                     new Restaurant{
                     RestaurantName = "Pizza Inn",
                     Location = "Uttara",
-                    Rating = 4,
+                    Rating = 0,
                     StartingPrice = 600,
                     MaxPrice = 2500,
                     Meals = "Pizza",

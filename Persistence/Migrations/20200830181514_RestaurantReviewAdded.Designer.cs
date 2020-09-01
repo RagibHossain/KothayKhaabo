@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200830181514_RestaurantReviewAdded")]
+    partial class RestaurantReviewAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,16 +115,6 @@ namespace Persistence.Migrations
                     b.Property<int>("StartingPrice")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TotalRatingPoints")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasDefaultValue(0);
-
-                    b.Property<int>("TotalReviews")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasDefaultValue(0);
-
                     b.HasKey("Id");
 
                     b.ToTable("Restaurants");
@@ -139,10 +131,10 @@ namespace Persistence.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Review")
+                    b.Property<DateTime>("TimePosted")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("TimePosted")
+                    b.Property<string>("review")
                         .HasColumnType("TEXT");
 
                     b.HasKey("UserId", "RestaurantId");

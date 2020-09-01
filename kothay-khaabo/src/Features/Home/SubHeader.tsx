@@ -2,7 +2,7 @@ import React from "react";
 interface IProps {
   image: string;
   title: string;
-  subTitle: string;
+  subTitle?: string;
 }
 const SubHeader: React.FC<IProps> = ({ image, title, subTitle }) => {
   return (

@@ -7,6 +7,7 @@ import RestaurantInfoCard from "./RestaurantInfoCard";
 import { RouteComponentProps } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import ReactLoading from "react-loading";
+import RestaurantReviewList from "./RestaurantReviewList";
 interface IProps {
   id: string;
 }
@@ -43,6 +44,7 @@ const RestaurantDetails: React.FC<RouteComponentProps<IProps>> = ({
               src={`/${restaurant?.image}` || "/pizzalogo.jpg"}
             />
             <RestaurantInfoCard restaurant={restaurant!} />
+             <RestaurantReviewList restaurant={restaurant}/>
           </Fragment>
         ) : (
           <ReactLoading
