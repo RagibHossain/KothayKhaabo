@@ -12,9 +12,10 @@ export interface IRestaurant{
     restaurantReviews : IReview[];
 }
 export interface IReview{
-    userName : string;
+    restaurantId: string;
+    username : string;
     displayName : string;
-    timePosted : Date;
+    timePosted? : Date;
     rating : number;
     review?: string;
 }

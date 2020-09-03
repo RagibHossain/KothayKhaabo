@@ -82,6 +82,7 @@ namespace API
             identityBuilder.AddEntityFrameworkStores<DataContext>();
             identityBuilder.AddSignInManager<SignInManager<AppUser>>();        
             services.AddScoped<IJwtGenerator,JwtGenerator>();
+            services.AddScoped<IUserAccessor, UserAccessor>();
             
         }
 

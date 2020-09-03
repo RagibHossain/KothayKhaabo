@@ -1,5 +1,5 @@
 import Axios, { AxiosResponse } from "axios";
-import { IRestaurant } from "../Common/Models/Restaurant";
+import { IRestaurant, IReview } from "../Common/Models/Restaurant";
 import { IUserForm, IUser } from "../Common/Models/User";
 import { toast } from "react-toastify";
 import { history } from "..";
@@ -58,10 +58,12 @@ const Restaurants ={
     Details : (id : string) => requests.get(`/restaurant/${id}`),
     Edit : (restaurant : IRestaurant) => requests.put(`/restaurant/${restaurant.id}`,restaurant),
     Add : (restaurant : IRestaurant) => requests.post("/restaurant",restaurant),
-    Delete : (id : string) => requests.del(`/restaurant/${id}`)
+    Delete : (id : string) => requests.del(`/restaurant/${id}`),
+    UploadReview : (review : IReview) => requests.post(`/restaurant/${review.restaurantId}`,review)
 }
 
 const User = {
+  current: (): Promise<IUser> => requests.get("/user"),
   Login :  (user : IUserForm) : Promise<IUser> => requests.post("/user/login",user),
   Register : (user : IUserForm) : Promise<IUser>  => requests.post("/user/register",user)
 }

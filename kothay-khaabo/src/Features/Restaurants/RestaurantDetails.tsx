@@ -19,13 +19,16 @@ const RestaurantDetails: React.FC<RouteComponentProps<IProps>> = ({
   const {
     selectedRestaurant: restaurant,
     loadSelectedRestaurant,
+    newReviewUploaded,
+    setNewReviewUploaded
   } = rootStore.restaurantStore;
 
   useEffect(() => {
-    if (!restaurant) {
+    if (!restaurant || newReviewUploaded ) {
       loadSelectedRestaurant(match.params.id);
+      setNewReviewUploaded(false);
     }
-  }, [restaurant, loadSelectedRestaurant, match.params.id]);
+  }, [restaurant, newReviewUploaded,setNewReviewUploaded,loadSelectedRestaurant, match.params.id]);
   return (
     <Container>
       <div className="restaurantList">

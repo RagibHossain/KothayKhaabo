@@ -1,4 +1,4 @@
-import React, {Fragment } from "react";
+import React, {Fragment, useContext, useEffect } from "react";
 import "./App.css";
 import SiteNav from "../Features/Nav/SiteNav";
 import RestaurantDashboard from "../Features/Restaurants/RestaurantDashboard";
@@ -7,8 +7,17 @@ import { observer } from "mobx-react-lite";
 import Home from "../Features/Home/Home";
 import {ToastContainer} from "react-toastify";
 import RestaurantDetails from "../Features/Restaurants/RestaurantDetails";
+import { rootStoreContext } from "../Common/Stores/rootStore";
 function App() {
-  
+  const rootStore = useContext(rootStoreContext);
+  const {getUser} = rootStore.userStore;
+
+  useEffect(() => {
+       if(window.localStorage.getItem("token")) {
+         getUser();
+         console.log("wow");
+       }
+  },[getUser])
   return (
     <div>
       {/* <SiteNav /> */}

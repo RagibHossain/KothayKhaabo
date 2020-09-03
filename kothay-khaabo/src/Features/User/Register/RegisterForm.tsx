@@ -39,7 +39,7 @@ const RegisterForm = () => {
                   name="userName"
                   placeholder="User Name"
                   register={register({ required: "User name is required" })}
-                  error={errors.userName}
+                  error={errors.username}
                   label="User Name"
                 />
               </div>

@@ -28,6 +28,7 @@ const RestaurantReview: React.FC<{ review: IReview }> = ({ review }) => {
       </div>
     </div>
   );
+  
 };
 
 export default RestaurantReview;

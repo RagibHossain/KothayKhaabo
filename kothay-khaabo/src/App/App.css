@@ -129,6 +129,9 @@ a{
   font-weight: 300;
 }
 
+
+/* Button Design  */
+
 .btn-black{
   background-color: #000 !important;
   color: #fff;
@@ -166,7 +169,17 @@ a{
   font-weight: normal;
   font-family: 'Do Hyeon', sans-serif;
 }
-.submitButton:hover{
+.dangerButton{
+  width: 80px;
+  height: 40px;
+  background-color: #c70909;
+  color: #ffffff;
+  border: solid 1px #ffffff;
+  border-radius: 7%;
+  font-weight: normal;
+  font-family: 'Do Hyeon', sans-serif;
+}
+.submitButton:hover,.dangerButton:hover{
   transition-duration: 0.5s;
   background-color: #ffffff;
   color: #1B1B1B;
@@ -233,7 +246,7 @@ a{
 .review{
   display: flex;
 }
-.detailsCard{
+.detailsCard,.modalHeader{
   font-weight: 100;
   font-family: 'Do Hyeon', sans-serif;
 }
