@@ -5,6 +5,7 @@ using Application.DTOs;
 using Application.Restaurants;
 using Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static Application.Restaurants.List;
 
@@ -18,9 +19,8 @@ namespace API.Controllers
         public RestaurantController(IMediator mediator)
         {
             _mediator = mediator;
-
         }
-
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<List<RestaurantDTO>>> List()
         {
@@ -28,7 +28,7 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-
+        [AllowAnonymous]
         public async Task<ActionResult<RestaurantDTO>> Details(Guid id)
         {
             return await _mediator.Send(new Details.Query{Id = id});

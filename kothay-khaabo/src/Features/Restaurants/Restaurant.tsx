@@ -8,8 +8,9 @@ import { rootStoreContext } from "../../Common/Stores/rootStore";
 const Restaurant: React.FC<{ restaurant: IRestaurant }> = ({ restaurant }) => {
   const rootStore = useContext(rootStoreContext);
   const {selectRestaurant} = rootStore.restaurantStore;
+  const {color} = rootStore.userStore;
   return (
-    <Card className="mb-2 ml-4 border-0" style={{ width: "25rem" }}>
+    <Card className="mb-2 ml-4 border-0" style={{ width: "25rem",backgroundColor : color ? color : "white" }}>
       <div className="restaurantCard">
         <img
           className="cardImage"

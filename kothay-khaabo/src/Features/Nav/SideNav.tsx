@@ -8,6 +8,7 @@ const SideNav = () => {
   const rootStore = useContext(rootStoreContext);
   const { setLoginPage, setRegisterPage } =rootStore.commonStore;
   const {token} = rootStore.userStore;
+  const {loginPage,registerPage} = rootStore.commonStore;
    const jwt = token ? token : window.localStorage.getItem("token");
   const redirectToRestaurant = () => {
     history.push("/home");

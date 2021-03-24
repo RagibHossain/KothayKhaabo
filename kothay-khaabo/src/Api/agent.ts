@@ -36,6 +36,15 @@ Axios.interceptors.response.use(undefined,(error) => {
   if (status === 500) {
     toast.error("Server Error Check the terminal for more info");
   }
+  if(status === 401)
+  {
+    // if an expired token is in the browser
+    if(window.localStorage.getItem("token"))
+     {
+       window.localStorage.removeItem("token");
+     }
+    //toast.error("A token is there but not valid");
+  }
   throw error.response;
 });
 

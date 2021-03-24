@@ -11,7 +11,8 @@ const RegisterForm = () => {
   const { register: Register } = rootStore.userStore;
   const onSubmit = (formdata: IUserForm) => {
     Register(formdata);
-    console.log(formdata);
+    console.log(formdata.confirmPassword);
+    console.log(formdata.password);
   };
 
   const password = getValues("password");

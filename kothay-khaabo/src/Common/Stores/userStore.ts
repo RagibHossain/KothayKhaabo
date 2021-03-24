@@ -13,13 +13,15 @@ export default class UserStore {
 
   @observable token: string | null = null;
   @observable user: IUser | null = null;
-
+  @observable loggedIn = false;
+  @observable color = "";
   @action login = async (user: IUserForm) => {
     try {
       await agent.User.Login(user).then((user) => {
         this.token = user.token;
         window.localStorage.setItem("token", user.token);
         this.user = user;
+        this.loggedIn = true;
         console.log(user);
         this.rootStore.commonStore.loginPage = false;
         this.rootStore.commonStore.registerPage = false;
@@ -34,6 +36,7 @@ export default class UserStore {
       await agent.User.Register(user).then((user) => {
         this.token = user.token;
         window.localStorage.setItem("token", user.token);
+        this.loggedIn = true;
         this.rootStore.commonStore.loginPage = false;
         this.rootStore.commonStore.registerPage = false;
       });
@@ -49,7 +52,8 @@ export default class UserStore {
     try {
       const user = await agent.User.current();
       this.user = user;
-      console.log(user);
+      this.loggedIn = true;     
+   //   console.log(user);
     } catch (ex) {
       console.log(ex);
     }
@@ -57,6 +61,10 @@ export default class UserStore {
   @action logout = async () => {
     this.token = null;
     window.localStorage.clear();
+    this.loggedIn = false;
     history.push("/");
+  };
+  @action setColor = (col : string) => {
+    this.color = col;
   };
 }

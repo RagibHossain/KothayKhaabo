@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 import { rootStoreContext } from "../../Common/Stores/rootStore";
 const SiteNav = () => {
   const rootStore = useContext(rootStoreContext);
-  const { logout } = rootStore.userStore;
+  const { logout ,setColor} = rootStore.userStore;
   const { token } = rootStore.userStore;
   const jwt = token ? token : window.localStorage.getItem("token");
   return (
@@ -16,20 +16,15 @@ const SiteNav = () => {
           <Nav.Link className="logo" href="#home"></Nav.Link>
 
           <Nav className="m-auto">
-            <NavLink className="navlink navItem" exact to="/">
-              <span className="navItem ml-5 mr-5">HOME</span>
-            </NavLink>
-            <NavLink
-              className="navlink"
-              to="/home"
-            >
+  
+            <NavLink className="navlink" to="/home" exact >
               <span className="navItem ml-5 mr-5">RESTAURANTS</span>
             </NavLink>
             <NavLink className="navlink" exact to="/">
-              <span className="navItem ml-5 mr-5">FEED</span>
+              <span className="navItem ml-5 mr-5">Home</span>
             </NavLink>
           </Nav>
-          {jwt && (
+          {jwt ? (
             <Button
               onClick={logout}
               className="button-font"
@@ -37,6 +32,10 @@ const SiteNav = () => {
             >
               Logout
             </Button>
+          ) : (
+            <NavLink className="navlink" exact to="/GetAccess">
+              <span className="navItem ml-5 mr-5">Signin/Signup</span>
+            </NavLink>
           )}
         </Container>
       </Navbar>
